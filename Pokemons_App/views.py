@@ -69,7 +69,8 @@ def query_results(request):
             return render(request, 'query_results.html', {'sql_res1': sql_res1,
                                               'sql_res2': sql_res2,
                                               'sql_res3': sql_res3,
-                                              'sql_res4': sql_res4})
+                                              'sql_res4': sql_res4,
+                                                'X': X, 'Y':Y})
         return render(request, 'query_results.html', {'sql_res1': sql_res1,
                                                       'sql_res2': sql_res2,
                                                       'sql_res4': sql_res4})
