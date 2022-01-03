@@ -75,7 +75,6 @@ def query_results(request):
                                                       'sql_res2': sql_res2,
                                                       'sql_res4': sql_res4})
 
-
     return render(request, 'pokemon_add.html')
 
 

@@ -1,5 +1,5 @@
 body{
-    background-color: lightgreen;
+    background-color: darkseagreen;
 }
 
 h1{
@@ -10,7 +10,29 @@ h2{
     color: black;
 }
 
-input {
-    ;
+/*body {*/
+/*    max-width: 960px;*/
+/*    margin: auto;*/
+/*}*/
+
+img {
+  display: block;
+  max-width:350px;
+  max-height:350px;
+  width: auto;
+  height: auto;
 }
 
+label {
+    display: inline-block;
+    width: 150px;
+}
+
+.main {
+    max-width: 960px;
+    margin: auto;
+}
+
+.left {
+    horiz-align: left;
+}

@@ -7,22 +7,47 @@
     <title>Simple Pokemon League Website</title>
 </head>
 <body>
+<div class="left">
+    <a href ="index">Home</a><br>
+    <a href="query_results">Query Results</a><br>
+    <a href="pokemon_add">Add a Pokemon</a><br>
+</div>
+<div class="main">
     <h1>Simple Pokemon League Website</h1>
     <br><br>
     <form method="post" action="pokemon_add">
         {% csrf_token %}
-        Name: <input type="text" name="name" minlength="2" maxlength="50" required/><br>
-        Type: <input type="text" name="type" maxlength="50" required/><br>
-        Generation: <input type="number" name="generation" min="1" max="6" step="1" required/><br>
-        Legendary: <input type="checkbox" name="legendary"/><br>
-        HP: <input type="number" name="HP" min="1" max="300" step="1" required/><br>
-        Attack: <input type="number" name="attack" min="1" max="300" step="1" required/><br>
-        Defense: <input type="number" name="defense" min="1" max="300" step="1" required/><br>
+        <p>
+            <label>Name: </label>
+            <input type="text" name="name" minlength="2" maxlength="50" required/>
+        </p>
+        <p>
+            <label>Type: </label>
+            <input type="text" name="type" maxlength="50" required/>
+        </p>
+        <p>
+            <label>Generation: </label>
+            <input type="number" name="generation" min="1" max="6" step="1" required/>
+        </p>
+        <p>
+            <label>Legendary: </label>
+            <input type="checkbox" name="legendary"/>
+        </p>
+        <p>
+            <label>HP: </label>
+            <input type="number" name="HP" min="1" max="300" step="1" required/>
+        </p>
+        <p>
+            <label>Attack: </label>
+            <input type="number" name="attack" min="1" max="300" step="1" required/>
+        </p>
+        <p>
+            <label>Defense: </label>
+            <input type="number" name="defense" min="1" max="300" step="1" required/>
+        </p>
         <input type="submit"><br>
-    </form>
 
-    <a href ="index">Home</a><br>
-    <a href="query_results">Query Results</a><br>
-    <a href="pokemon_add">Add a Pokemon</a><br>
+    </form>
+</div>
 </body>
 </html>

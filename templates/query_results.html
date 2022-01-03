@@ -6,6 +6,12 @@
     <meta charset="UTF-8">
 </head>
 <body>
+<div class="left">
+    <a href ="index">Home</a><br>
+    <a href="query_results">Query Results</a><br>
+    <a href="pokemon_add">Add a Pokemon</a><br>
+</div>
+<div class="main">
     <h1>Simple Pokemon League Website </h1>
     <br>
     Strongest Pokemons that are legendary, by generation:
@@ -36,8 +42,14 @@
     Type with strongest Pokemon stronger than {{ X }} and more than {{ Y }} Pokemons<br>
     <form method="post">
         {% csrf_token %}
-        Attack Threshold:<input type="number" min = "0" name="X" ><br>
-        Pokemon Count:<input type="number" min="0" name="Y" ><br>
+        <p>
+            <label>Attack Threshold: </label>
+            <input type="number" min = "0" name="X" >
+        </p>
+        <p>
+            <label>Pokemon Count: </label>
+            <input type="number" min="0" name="Y" >
+        </p>
         <input type="submit">
     </form><br>
     {% if sql_res3 %}
@@ -61,8 +73,11 @@
                 </tr>
             {% endfor %}
     </table><br><br>
+</div>
+<div class="left">
     <a href ="index">Home</a><br>
     <a href="query_results">Query Results</a><br>
     <a href="pokemon_add">Add a Pokemon</a><br>
+</div>
 </body>
 </html>
