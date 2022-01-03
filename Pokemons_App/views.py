@@ -42,15 +42,16 @@ def query_results(request):
         ORDER BY Type ASC;
         """)
         sql_res2 = dictfetchall(cursor)
-
-        cursor.execute(f"""
-                SELECT Type
-        FROM Pokemons
-        GROUP BY Type
-        HAVING COUNT(*) > {Y} AND
-          MAX(Attack) > {X};
-        """)
-        sql_res3 = dictfetchall(cursor)
+        sql_res3 = None
+        if request.method == 'POST' and request.POST:
+            cursor.execute(f"""
+                    SELECT Type
+            FROM Pokemons
+            GROUP BY Type
+            HAVING COUNT(*) > {Y} AND
+                MAX(Attack) > {X};
+            """)
+            sql_res3 = dictfetchall(cursor)
 
         cursor.execute("""
         SELECT Type, ROUND(AVG(ABS(CAST(Attack - Defense as FLOAT))), 2) as instability
@@ -62,11 +63,14 @@ def query_results(request):
             GROUP BY Type);
         """)
         sql_res4 = dictfetchall(cursor)
-
-        return render(request, 'query_results.html', {'sql_res1': sql_res1,
+        if sql_res3 != None:
+            return render(request, 'query_results.html', {'sql_res1': sql_res1,
                                               'sql_res2': sql_res2,
                                               'sql_res3': sql_res3,
                                               'sql_res4': sql_res4})
+        return render(request, 'query_results.html', {'sql_res1': sql_res1,
+                                                      'sql_res2': sql_res2,
+                                                      'sql_res4': sql_res4})
 
 
 
