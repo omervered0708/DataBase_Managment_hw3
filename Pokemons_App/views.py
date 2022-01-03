@@ -44,6 +44,8 @@ def query_results(request):
         sql_res2 = dictfetchall(cursor)
         sql_res3 = None
         if request.method == 'POST' and request.POST:
+            X = request.POST["X"]
+            Y = request.POST["Y"]
             cursor.execute(f"""
                     SELECT Type
             FROM Pokemons
