@@ -90,14 +90,14 @@ def pokemon_add(request):
         attack = request.POST['attack']
         defense = request.POST['defense']
         # add pokemon to database
-        new_pokemon = Pokemons(name =name,
-                               type = type,
+        new_pokemon = Pokemon(name=name,
+                              type=type,
                               generation=generation,
-                               legendary=legendary,
-                               hp = hp,
-                               attack = attack,
-                               defense=defense
-                               )
+                              legendary=legendary,
+                              hp=hp,
+                              attack=attack,
+                              defense=defense)
+        new_pokemon.save()
 
     return render(request, 'pokemon_add.html')
 

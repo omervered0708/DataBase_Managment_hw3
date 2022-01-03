@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="omer0vered@techniondbcourse01.database.windows.net" uuid="660344d0-1d7f-4546-a67f-535776446dac">
-      <driver-ref>sqlserver.ms</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://techniondbcourse01.database.windows.net;database=omer0vered</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
     <data-source source="LOCAL" name="omer0vered@techniondbcourse01.database.windows.net" uuid="bdb5a0c8-e110-42db-bf54-306369eec719">
       <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>
