@@ -1,10 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load static %}
+<link rel="stylesheet" href="{%  static 'style.css' %}">
+<h1>Simple Pokemon League Website </h1>
+<br>
+<img src="{% static "pokemon le.jpg" %}" alt="Sandler"/>
+<br>
+<h2>New Contents</h2>
+<table border="1" width="40%">
+    <th>Title</th>
+    <th>Language</th>
+    <th>Release Date</th>
+        {% for content in sql_res1 %}
+            <tr>
+            <td>{{ content.title }} </td>
+            <td>{{ content.language }} </td>
+            <td>{{ content.release_date }} </td>
+            </tr>
+        {% endfor %}
+</table><br><br>
 
-</body>
-</html>
+<h2>Sandler's Contents</h2>
+<table border="1" width="15%">
+    <th>Title</th>
+        {% for actedin in sql_res2 %}
+            <tr>
+            <td>{{ actedin.title.title }} </td>
+            </tr>
+        {% endfor %}
+</table><br><br>
+<a href="add_content">Add New Content Item</a><br>
+<a href="salary_checker">Salary Checker</a>
+
+
+
+
