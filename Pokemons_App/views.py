@@ -86,11 +86,15 @@ def pokemon_add(request):
         type = request.POST['type']
         generation = request.POST['generation']
         legendary = request.POST['legendary']
+        if legendary == 'on':
+            legendary = True
+        else:
+            legendary = False
         hp = request.POST['HP']
         attack = request.POST['attack']
         defense = request.POST['defense']
         # add pokemon to database
-        new_pokemon = Pokemon(name=name,
+        new_pokemon = Pokemons(name=name,
                               type=type,
                               generation=generation,
                               legendary=legendary,
