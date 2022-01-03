@@ -63,7 +63,7 @@ def query_results(request):
         """)
         sql_res4 = dictfetchall(cursor)
 
-        return render(request, 'index.html', {'sql_res1': sql_res1,
+        return render(request, 'query_results.html', {'sql_res1': sql_res1,
                                               'sql_res2': sql_res2,
                                               'sql_res3': sql_res3,
                                               'sql_res4': sql_res4})
