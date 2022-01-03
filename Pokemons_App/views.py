@@ -76,6 +76,26 @@ def query_results(request):
                                                       'sql_res4': sql_res4})
 
 
+    return render(request, 'pokemon_add.html')
 
+
+def pokemon_add(request):
+    if request.method == 'POST' and request.POST:
+        # get input
+        name = request.POST['name']
+        type = request.POST['type']
+        generation = request.POST['generation']
+        legendary = request.POST['legendary']
+        hp = request.POST['HP']
+        attack = request.POST['attack']
+        defense = request.POST['defense']
+        # add pokemon to database
+        with connection.cursor as cursor:
+            cursor.execute(f"""
+            INSERT INTO Pokemons (NAME, Type, Generation, Legendary, HP, Attack, Defense)
+            VALUES ({name}, {type}, {generation}, {legendary}, {hp}, {attack}, {defense})
+            """)
+
+    return render(request, 'pokemon_add.html')
 
 
