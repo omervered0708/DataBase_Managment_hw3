@@ -2,9 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
 </head>
 <body>
+    <h1>Simple Pokemon League Website </h1>
+    <br>
+    Strongest Pokemons that are legendary, by generation:
+    <br>
+    <table border="1" width="40%">
+        <th>Generation</th>
+        <th>Pokemon</th>
+            {% for pokemon in sql_res1 %}
+                <tr>
+                <td>{{ pokemon.Generation }} </td>
+                <td>{{ content.Name }} </td>
+                </tr>
+            {% endfor %}
+    </table><br><br>
+    Dominant Pokemons by type:
+    <form method="post">
+        {% csrf_token %}
+        Attack Threshold:<input type="number" min = "0" name="X" ><br>
+        Pokemon Count:<input type="number" min="0" name="Y" ><br>
+        <input type="submit">
+    </form>
 
 </body>
 </html>
