@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="omer0vered@techniondbcourse01.database.windows.net">
-  <database-model serializer="dbm" dbms="AZURE" family-id="AZURE" format-version="4.20">
+  <database-model serializer="dbm" dbms="AZURE" family-id="AZURE" format-version="4.23">
     <root id="1">
       <ServerVersion>12.0.2327</ServerVersion>
       <Dbms>AZURE</Dbms>
@@ -11,9 +11,9 @@
     <database id="3" parent="1" name="omer0vered">
       <ObjectId>116</ObjectId>
       <PermissionsCheckSum>2118039708</PermissionsCheckSum>
-      <Grants>116|database||1|connect|G
-116|database||5|connect|G
-</Grants>
+      <Grants>-9223372036854775808|||-9223372036854775808||G
+116|database||1|connect|G
+116|database||5|connect|G</Grants>
       <Current>1</Current>
       <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
       <Fingerprint>116.44491/140D444D-5EE7-42C5-A860-D7F558108ED3@techniondbcourse01</Fingerprint>
@@ -50,7 +50,7 @@
     </schema>
     <schema id="14" parent="3" name="dbo">
       <ObjectId>1</ObjectId>
-      <IntrospectionTimestamp>2022-01-03.15:59:14.127</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2022-01-03.18:15:49.950</IntrospectionTimestamp>
       <Current>1</Current>
     </schema>
     <schema id="15" parent="3" name="guest">
@@ -141,93 +141,5 @@
       <Type>database-role</Type>
       <AuthType>none</AuthType>
     </role>
-    <table id="32" parent="14" name="Pokemons">
-      <ObjectId>160719625</ObjectId>
-      <CreatedTimestamp>2021-12-29.18:58:50.060</CreatedTimestamp>
-      <ModifiedTimestamp>2021-12-29.18:58:50.060</ModifiedTimestamp>
-    </table>
-    <column id="33" parent="32" name="Name">
-      <Position>1</Position>
-      <DataType>varchar(50 char)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="34" parent="32" name="Type">
-      <Position>2</Position>
-      <DataType>varchar(50 char)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="35" parent="32" name="Generation">
-      <Position>3</Position>
-      <DataType>int|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="36" parent="32" name="Legendary">
-      <Position>4</Position>
-      <DataType>bit|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="37" parent="32" name="HP">
-      <Position>5</Position>
-      <DataType>int|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="38" parent="32" name="Attack">
-      <Position>6</Position>
-      <DataType>int|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="39" parent="32" name="Defense">
-      <Position>7</Position>
-      <DataType>int|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="40" parent="32" name="PK__Pokemons__737584F72E5FEDD7">
-      <Position>1</Position>
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>Name</ColNames>
-      <Clustering>1</Clustering>
-      <Unique>1</Unique>
-    </index>
-    <key id="41" parent="32" name="PK__Pokemons__737584F72E5FEDD7">
-      <ObjectId>176719682</ObjectId>
-      <NameSurrogate>1</NameSurrogate>
-      <CreatedTimestamp>2021-12-29.18:58:50.067</CreatedTimestamp>
-      <ModifiedTimestamp>2021-12-29.18:58:50.067</ModifiedTimestamp>
-      <ColNames>Name</ColNames>
-      <UnderlyingIndexName>PK__Pokemons__737584F72E5FEDD7</UnderlyingIndexName>
-      <Primary>1</Primary>
-    </key>
-    <check id="42" parent="32" name="CK__Pokemons__Attack__0D64F3ED">
-      <ObjectId>224719853</ObjectId>
-      <NameSurrogate>1</NameSurrogate>
-      <CreatedTimestamp>2021-12-29.18:58:50.073</CreatedTimestamp>
-      <ModifiedTimestamp>2021-12-29.18:58:50.073</ModifiedTimestamp>
-      <ColNames>Attack</ColNames>
-      <Predicate>[Attack]&gt;0 AND [Attack]&lt;=300</Predicate>
-    </check>
-    <check id="43" parent="32" name="CK__Pokemons__Defens__0E591826">
-      <ObjectId>240719910</ObjectId>
-      <NameSurrogate>1</NameSurrogate>
-      <CreatedTimestamp>2021-12-29.18:58:50.077</CreatedTimestamp>
-      <ModifiedTimestamp>2021-12-29.18:58:50.077</ModifiedTimestamp>
-      <ColNames>Defense</ColNames>
-      <Predicate>[Defense]&gt;0 AND [Defense]&lt;=300</Predicate>
-    </check>
-    <check id="44" parent="32" name="CK__Pokemons__Genera__0B7CAB7B">
-      <ObjectId>192719739</ObjectId>
-      <NameSurrogate>1</NameSurrogate>
-      <CreatedTimestamp>2021-12-29.18:58:50.070</CreatedTimestamp>
-      <ModifiedTimestamp>2021-12-29.18:58:50.070</ModifiedTimestamp>
-      <ColNames>Generation</ColNames>
-      <Predicate>[Generation]&gt;=1 AND [Generation]&lt;=6</Predicate>
-    </check>
-    <check id="45" parent="32" name="CK__Pokemons__HP__0C70CFB4">
-      <ObjectId>208719796</ObjectId>
-      <NameSurrogate>1</NameSurrogate>
-      <CreatedTimestamp>2021-12-29.18:58:50.070</CreatedTimestamp>
-      <ModifiedTimestamp>2021-12-29.18:58:50.070</ModifiedTimestamp>
-      <ColNames>HP</ColNames>
-      <Predicate>[HP]&gt;0 AND [HP]&lt;=300</Predicate>
-    </check>
   </database-model>
 </dataSource>

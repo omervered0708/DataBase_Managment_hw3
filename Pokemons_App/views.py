@@ -1,13 +1,17 @@
 from django.shortcuts import render
 from django.db import connection
+
+
 # Create your views here.
 def dictfetchall(cursor):
     "Return all rows from a cursor as a dict"
     columns = [col[0] for col in cursor.description]
     return [dict(zip(columns, row)) for row in cursor.fetchall()]
 
+
 def index(request):
     return render(request, "index.html")
+
 
 def query_results(request):
     with connection.cursor() as cursor:
@@ -22,6 +26,49 @@ def query_results(request):
         ORDER BY Generation;
         """)
         sql_res1 = dictfetchall(cursor)
+
+        cursor.execute("""
+        SELECT Pokemons.Name, Pokemons.Type
+        FROM Pokemons
+        WHERE Pokemons.Name NOT IN (
+            -- all pokemon with some pokemon with better stats and same type
+            SELECT p1.Name
+            FROM Pokemons p1, Pokemons p2
+            WHERE p1.Type = p2.Type AND
+                  p1.Name <> p2.Name AND
+                  (p1.Attack <= p2.Attack OR
+                  p1.Defense <= p2.Defense OR
+                  p1.HP <= p2.HP))
+        ORDER BY Type ASC;
+        """)
+        sql_res2 = dictfetchall(cursor)
+
+        cursor.execute(f"""
+                SELECT Type
+        FROM Pokemons
+        GROUP BY Type
+        HAVING COUNT(*) > {Y} AND
+          MAX(Attack) > {X};
+        """)
+        sql_res3 = dictfetchall(cursor)
+
+        cursor.execute("""
+        SELECT Type, ROUND(AVG(ABS(CAST(Attack - Defense as FLOAT))), 2) as instability
+        FROM Pokemons
+        GROUP BY Type
+        HAVING AVG(ABS(CAST(Attack - Defense as FLOAT))) >= ALL (
+            SELECT AVG(ABS(CAST(Attack - Defense as FLOAT)))
+            FROM Pokemons
+            GROUP BY Type);
+        """)
+        sql_res4 = dictfetchall(cursor)
+
+        return render(request, 'index.html', {'sql_res1': sql_res1,
+                                              'sql_res2': sql_res2,
+                                              'sql_res3': sql_res3,
+                                              'sql_res4': sql_res4})
+
+
 
 
 
