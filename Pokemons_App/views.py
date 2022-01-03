@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.db import connection
-
+from .models import Pokemons
 
 # Create your views here.
 def dictfetchall(cursor):
@@ -90,11 +90,14 @@ def pokemon_add(request):
         attack = request.POST['attack']
         defense = request.POST['defense']
         # add pokemon to database
-        with connection.cursor as cursor:
-            cursor.execute(f"""
-            INSERT INTO Pokemons (NAME, Type, Generation, Legendary, HP, Attack, Defense)
-            VALUES ({name}, {type}, {generation}, {legendary}, {hp}, {attack}, {defense})
-            """)
+        new_pokemon = Pokemons(name =name,
+                               type = type,
+                              generation=generation,
+                               legendary=legendary,
+                               hp = hp,
+                               attack = attack,
+                               defense=defense
+                               )
 
     return render(request, 'pokemon_add.html')
 
