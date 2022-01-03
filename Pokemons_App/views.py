@@ -9,3 +9,5 @@ def dictfetchall(cursor):
 def index(request):
     return render(request, "index.html")
 
+def query_results(request):
+    pass
