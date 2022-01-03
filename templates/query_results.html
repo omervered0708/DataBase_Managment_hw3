@@ -33,7 +33,7 @@
             {% endfor %}
     </table><br><br>
     {% csrf_token %}
-    Type with strongest Pokemon stronger than {{ X }} and more than {{ Y }} Pokemons
+    Type with strongest Pokemon stronger than {{ X }} and more than {{ Y }} Pokemons<br>
     <form method="post">
         {% csrf_token %}
         Attack Threshold:<input type="number" min = "0" name="X" ><br>
