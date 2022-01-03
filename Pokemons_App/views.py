@@ -10,4 +10,18 @@ def index(request):
     return render(request, "index.html")
 
 def query_results(request):
-    pass
+    with connection.cursor() as cursor:
+        cursor.execute("""
+        SELECT p1.Generation, p1. Name
+        FROM Pokemons p1
+        WHERE (p1.HP + p1.Attack + p1.Defense) >= ALL(
+            SELECT p2.Attack +p2.Defense + p2.HP
+            FROM Pokemons p2
+            WHERE p2.Generation = p1.Generation
+            ) AND Legendary = 1
+        ORDER BY Generation;
+        """)
+        sql_res1 = dictfetchall(cursor)
+
+
+
